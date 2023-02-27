@@ -36,4 +36,23 @@ one_photo.destroy
     redirect_to("/photos")
   end
 
+
+  def create
+#   Parameters: {"query_image_url"=>"a", "query_photo_caption"=>"b", "query_owner_id"=>"c"}
+
+query_image_url = params.fetch("query_image_url")
+query_photo_caption = params.fetch("query_photo_caption")
+query_owner_id = params.fetch("query_owner_id")
+
+a_new_photo = Photo.new
+a_new_photo.image = query_image_url
+a_new_photo.caption = query_photo_caption
+a_new_photo.owner_id = query_owner_id
+
+a_new_photo.save
+
+
+redirect_to("/photos/#{a_new_photo.id.to_s}")
+  end
+
 end
