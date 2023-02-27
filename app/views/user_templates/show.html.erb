@@ -3,13 +3,13 @@
 
 <dl>
 <dt>ID</dt>
-<dd><%= @single_user.id%></dd>
+<dd><%= @single_user.id %></dd>
 
 <dt>Edit user</dt>
 <dd>
 <form>
-<label for="browser_username"></label>
-<input id="browser_username" type="text" name="input_username" placeholder="username">
+<label for="browser_username">Username</label>
+<input id="browser_username" type="text" name="query_username" placeholder="<%= @single_user.username %>" value="<%= @single_user.username %>">
 <button>Update user</button>
 </form>
 </dd>
@@ -23,7 +23,7 @@
 <table border ="1">
 <tbody>
 <tr>
-<th>Imgage</th>
+<th>Image</th>
 <th>Owner</th>
 <th>Caption</th>
 <th>Posted</th>

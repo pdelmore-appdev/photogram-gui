@@ -11,7 +11,6 @@ class UsersController < ApplicationController
   end
 
   def show
-# Parameters: {"path_username"=>"anisa"}
 
 url_username = params.fetch("path_username")
 
@@ -19,11 +18,36 @@ url_username = params.fetch("path_username")
 
 @single_user = @all_users.at(0)
 
-# if single_user == nil
-#   redirect_to("/404")
-# else
     render({ :template => "user_templates/show.html.erb" })
-  # end
+end
+
+def add_user
+
+  query_username = params.fetch("query_username")
+
+  new_user = User.new
+
+  new_user.username = query_username
+
+  new_user.save
+
+  
+redirect_to("/users/#{new_user.username}")
+end
+
+def edit_user
+edited_username = params.fetch("query_username")
+
+all_users = User.where({ :username => edited_username })
+
+the_user = all_users.first
+
+the_user.username = edited_username
+
+the_username.save
+
+
+redirect_to("/users/#{the_user.username}")
 end
 
 end
