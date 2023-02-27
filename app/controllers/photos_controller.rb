@@ -31,14 +31,11 @@ one_photo = matching_photos.first
 one_photo.destroy
 
 
-    # render({ :template => "photo_templates/delete.html.erb" })
-
     redirect_to("/photos")
   end
 
 
   def create
-#   Parameters: {"query_image_url"=>"a", "query_photo_caption"=>"b", "query_owner_id"=>"c"}
 
 query_image_url = params.fetch("query_image_url")
 query_photo_caption = params.fetch("query_photo_caption")
@@ -54,5 +51,26 @@ a_new_photo.save
 
 redirect_to("/photos/#{a_new_photo.id.to_s}")
   end
+
+
+  def update_photo
+
+query_image = params.fetch("query_image")
+query_caption = params.fetch("query_caption")
+update_photo_id = params.fetch("update_photo_id")
+
+matching_photos = Photo.where({ :id => update_photo_id })
+
+the_photo = matching_photos.first
+
+the_photo.image = query_image
+the_photo.caption = query_caption
+
+the_photo.save
+
+
+redirect_to("/photos/#{the_photo.id.to_s}")
+  end
+
 
 end
