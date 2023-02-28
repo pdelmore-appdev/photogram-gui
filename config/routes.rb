@@ -6,7 +6,9 @@ get("/", { :controller => "application", :action => "homepage" })
   get("/photos", { :controller => "photos", :action => "index" })
   get("/add_photo", { :controller => "photos", :action => "create" })
   get("/add_user", {:controller => "users", :action => "add_user" })
-  
+  get("/update_user", {:controller => "users", :action => "update_user" })
+
+  get("/insert_comment_record", { :controller => "photos", :action => "add_comment" })
 
   get("/users/:path_username", { :controller => "users", :action => "show" })
   get("/photos/:path_photo_id", { :controller => "photos", :action => "show" })

@@ -73,4 +73,22 @@ redirect_to("/photos/#{the_photo.id.to_s}")
   end
 
 
+  def add_comment
+
+query_photo_id = params.fetch("query_photo_id")
+query_author_id = params.fetch("query_author_id")
+query_body = params.fetch("query_body")
+
+new_comment = Comment.new
+
+new_comment.photo_id = query_photo_id
+new_comment.author_id = query_author_id
+new_comment.body = query_body
+
+new_comment.save
+
+redirect_to("/photos/#{new_comment.photo_id.to_s}")
+  end
+
+
 end

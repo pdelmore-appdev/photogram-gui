@@ -7,10 +7,14 @@
 
 <dt>Edit user</dt>
 <dd>
-<form action="/add_user">
+<form action="/update_user">
 <label for="browser_username">Username</label>
 <input id="browser_username" type="text" name="query_username" placeholder="<%= @single_user.username %>" value="<%= @single_user.username %>">
-<button>Update user</button>
+
+<label for="browser_user_id">User ID</label>
+<input id="browser_user_id" type="text" name="query_id" placeholder="<%= @single_user.id %>" value="<%= @single_user.id %>">
+
+<button type="submit">Update user</button>
 </form>
 </dd>
 

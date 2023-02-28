@@ -35,10 +35,14 @@ def add_user
 redirect_to("/users/#{new_user.username}")
 end
 
-def edit_user
-edited_username = params.fetch("query_username")
+def update_user
 
-all_users = User.where({ :username => edited_username })
+
+ # the_user doesn't work because I need to somehow edit  
+edited_username = params.fetch("query_username")
+user_id = params.fetch("query_id")
+
+all_users = User.where({ :id => user_id })
 
 the_user = all_users.first
 
