@@ -7,7 +7,7 @@
 
 <dt>Edit user</dt>
 <dd>
-<form>
+<form action="/add_user">
 <label for="browser_username">Username</label>
 <input id="browser_username" type="text" name="query_username" placeholder="<%= @single_user.username %>" value="<%= @single_user.username %>">
 <button>Update user</button>
@@ -34,9 +34,8 @@
 <tr>
 <td><img src="<%= a_photo.image %>"></td>
 <td>
-<%#= User.where({ :id => a_photo.owner_id }).first.username %>
 
-<%= a_photo.poster.username%>
+<%= a_photo.poster.username %>
 </td>
 <td><%= a_photo.caption %></td>
 <td><%= a_photo.created_at %></td>

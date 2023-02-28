@@ -44,7 +44,7 @@ the_user = all_users.first
 
 the_user.username = edited_username
 
-the_username.save
+the_user.save
 
 
 redirect_to("/users/#{the_user.username}")
